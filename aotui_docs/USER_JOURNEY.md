@@ -25,7 +25,7 @@ This document illustrates the complete interaction flow when a user creates a ne
 | **AOTUI Runtime** | Bridge | "Air Lock" between Product and Kernel |
 | **AOTUI Runtime** | Kernel | Orchestrator, manages lifecycle and concurrency |
 | **AOTUI Runtime** | Registry | Snapshot storage with reference counting |
-| **AOTUI Runtime** | Desktop | Sandbox for Apps, HappyDOM host |
+| **AOTUI Runtime** | Desktop | Sandbox for Apps, LinkeDOM host |
 | **AOTUI Runtime** | Transformer | DOM → Markdown renderer |
 | **AOTUI Runtime** | Dispatcher | Command → Event actuator |
 | **External** | Agent (LLM) | Consumer of TUI |

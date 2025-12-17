@@ -452,7 +452,7 @@ Runtime uses `MutationObserver` internally to detect DOM changes:
 ```typescript
 // Internal implementation (not exposed API)
 class Desktop {
-  private setupDomObserver(dom: HappyDOM) {
+  private setupDomObserver(dom: LinkeDOM) {
     const observer = new MutationObserver(() => {
       this.output.emit({
         desktopId: this.id,
@@ -512,7 +512,7 @@ See ARCHITECTURE.md Section 7.5 NOTICE 2 for detailed implementation.
 
 * **Analogy**: Think of AOTUI as **"Electron without the Pixel Rendering Layer"**.
 * **Core**: It runs on **Node.js**.
-* **DOM**: It uses **HappyDOM** (or similar) to provide a standard Browser API (`document`, `window`, `CustomEvent`) without a graphical window.
+* **DOM**: It uses **LinkeDOM** (or similar) to provide a standard Browser API (`document`, `window`, `CustomEvent`) without a graphical window.
 * **System Access**: Apps have full access to Node.js APIs (`fs`, `net`, `child_process`), allowing them to build real desktop capabilities (File Management, Terminal, System Control).
 
 ### 7.2 The "Renderer"

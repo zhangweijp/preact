@@ -38,7 +38,7 @@ graph TB
         
         subgraph "Desktop Environment"
             Desktop[Desktop Instance]
-            DOM[HappyDOM]
+            DOM[LinkeDOM]
             Stream[I/O Streams]
         end
         
@@ -113,11 +113,11 @@ The Runtime Kernel is organized into strict functional modules.
 
 * **Role**: The Renderer (DOM to Text).
 * **Responsibilities**:
-  * **Traversal**: Efficiently walks the HappyDOM tree.
+  * **Traversal**: Efficiently walks the LinkeDOM tree.
   * **Extraction**: Reads semantic attributes (`view`, `list`, `operation`, `data-value`).
   * **Markdown Generation**: Produces the formatted TUI output.
   * **Data Capture**: Extracts `data-value` payloads and builds the `IndexMapping` for the Registry.
-* **Input**: HappyDOM Document.
+* **Input**: LinkeDOM Document.
 * **Output**: Markdown String + Index Map.
 * **Safety & Limits (Sanitization)**:
   * **Payload Toxicity**: Strict size limit (e.g., 10KB) on `data-value` JSON.
@@ -143,10 +143,10 @@ The Runtime Kernel is organized into strict functional modules.
 * **Role**: The Sandbox.
 * **Responsibilities**:
   * **App Hosting**: Loads App bundles, acts as the "OS".
-  * **Resource Management**: Manages the shared HappyDOM instance.
+  * **Resource Management**: Manages the shared LinkeDOM instance.
   * **Isolation**: Ensures Apps cannot crash the Kernel or access unauthorized resources.
   * **Resource Governance (Watchdogs)**:
-    * **Heap Limit**: Monitors HappyDOM memory usage; force-restarts Desktop if limits (e.g., 500MB) are exceeded.
+    * **Heap Limit**: Monitors LinkeDOM memory usage; force-restarts Desktop if limits (e.g., 500MB) are exceeded.
     * **CPU Quota**: Detects run-away loops (e.g., blocking event loop for >1s) and kills the offending App context.
 
 ---
@@ -195,7 +195,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant DOM as HappyDOM
+    participant DOM as LinkeDOM
     participant Observer as MutationObserver
     participant Bridge hiding Agent
     participant Kernel
