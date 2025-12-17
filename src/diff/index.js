@@ -659,6 +659,12 @@ function diffElementNodes(
 				setProperty(dom, i, checked, oldProps[i], namespace);
 			}
 		}
+
+		// AOTUI PATCH: Explicitly render 'key' as 'key' attribute for Transformer visibility
+		// We do this after property setting to ensure it overrides any "key" prop logic if it existed
+		if (newVNode.key != null) {
+			dom.setAttribute('key', newVNode.key);
+		}
 	}
 
 	return dom;
